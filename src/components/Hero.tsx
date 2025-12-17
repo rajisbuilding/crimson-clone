@@ -69,22 +69,22 @@ const Hero = () => {
       </div>
 
       {/* As Seen In Section */}
-      <div className="absolute bottom-0 left-0 right-0 bg-black/40 backdrop-blur-sm py-6">
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent backdrop-blur-sm py-3">
         <div className="container mx-auto px-4 lg:px-8">
-          <p className="text-sm text-white/60 mb-4 font-sans">As seen in</p>
+          <p className="text-xs text-white/60 mb-2 font-sans">As seen in</p>
           <div className="overflow-hidden">
-            <div className="flex gap-12 items-center animate-marquee">
+            <div className="flex gap-10 items-center animate-marquee">
               {[...Array(2)].map((_, setIndex) => (
-                <div key={setIndex} className="flex gap-12 items-center">
-                  <span className="text-white/70 font-serif text-lg whitespace-nowrap">The Wall Street Journal</span>
-                  <span className="text-white/70 font-serif italic text-lg whitespace-nowrap">The New York Times</span>
-                  <span className="text-white/70 font-sans font-bold text-lg whitespace-nowrap">Forbes</span>
-                  <span className="text-white/70 font-sans font-bold text-lg whitespace-nowrap tracking-wider">npr</span>
-                  <span className="text-white/70 font-sans font-semibold text-lg whitespace-nowrap">Bloomberg</span>
-                  <span className="text-white/70 font-serif italic text-lg whitespace-nowrap">The Economist</span>
-                  <span className="text-white/70 font-serif text-lg whitespace-nowrap">The Washington Post</span>
-                  <span className="text-white/70 font-sans font-bold text-lg whitespace-nowrap tracking-widest">TIME</span>
-                  <span className="text-white/70 font-serif text-lg whitespace-nowrap">Financial Times</span>
+                <div key={setIndex} className="flex gap-10 items-center">
+                  <span className="text-white/70 font-serif text-sm whitespace-nowrap">The Wall Street Journal</span>
+                  <span className="text-white/70 font-serif italic text-sm whitespace-nowrap">The New York Times</span>
+                  <span className="text-white/70 font-sans font-bold text-sm whitespace-nowrap">Forbes</span>
+                  <span className="text-white/70 font-sans font-bold text-sm whitespace-nowrap tracking-wider">npr</span>
+                  <span className="text-white/70 font-sans font-semibold text-sm whitespace-nowrap">Bloomberg</span>
+                  <span className="text-white/70 font-serif italic text-sm whitespace-nowrap">The Economist</span>
+                  <span className="text-white/70 font-serif text-sm whitespace-nowrap">The Washington Post</span>
+                  <span className="text-white/70 font-sans font-bold text-sm whitespace-nowrap tracking-widest">TIME</span>
+                  <span className="text-white/70 font-serif text-sm whitespace-nowrap">Financial Times</span>
                 </div>
               ))}
             </div>
