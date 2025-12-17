@@ -1,7 +1,36 @@
 import { Button } from "@/components/ui/button";
 import heroCampus from "@/assets/hero-campus.jpg";
+import { useState, useEffect } from "react";
+
+const phrases = ["ISEF Finalist", "Ivy League admit", "JSHS Winner", "Published Author"];
 
 const Hero = () => {
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = phrases[currentPhraseIndex];
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (displayText.length < currentPhrase.length) {
+          setDisplayText(currentPhrase.slice(0, displayText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), 1500);
+        }
+      } else {
+        if (displayText.length > 0) {
+          setDisplayText(displayText.slice(0, -1));
+        } else {
+          setIsDeleting(false);
+          setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+        }
+      }
+    }, isDeleting ? 50 : 100);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentPhraseIndex]);
   return (
     <section className="relative min-h-screen flex items-center pt-20">
       {/* Background Image */}
@@ -24,7 +53,8 @@ const Hero = () => {
 
           {/* Main Headline */}
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in animate-delay-100">
-            We'll Make Sure You're One of Them.
+            Become a <span className="text-primary">{displayText}</span>
+            <span className="animate-pulse">|</span>
           </h1>
 
           {/* Subtext */}
